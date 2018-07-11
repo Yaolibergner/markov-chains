@@ -12,8 +12,6 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
-
     with open(file_path) as filename:
 
         string_of_file = filename.read()
@@ -47,9 +45,6 @@ def make_chains(text_string):
     """
 
     chains = {}
-
-    # your code goes here
-
  
     words = text_string.split()
 
@@ -65,24 +60,6 @@ def make_chains(text_string):
 
         chains[key].append(possible_word)
 
-
-    #     possible_word = []
-    #     chains[key] =chains.get(key, possible_word)
-
-    #     if key in chains:
-    #         possible_word = chains[key]
-    #     else:
-    #         possible_word = []
-    #     try:
-    #         possible_word = possible_word.append(words[i+2])
-    #         # chains[key] =chains.get(key, possible_word)
-    #     except:
-    #         return chains
-
-    #     chains[key] =chains.get(key, possible_word)
-
-    # print(chains)
-
     return chains
 
 
@@ -91,28 +68,14 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
-    #Pick a random key
-    #Append key to string
-    #Pick a random word from the list of possible words
-    #Append word to string
-    #Create a new key 
-    #Find the key 
-    #Repeat Pick a random word etc etc
-    #if possible words is empty list, return string
-
     keys = list(chains.keys())
     search_key = ()
-
-    
 
     while True: 
         if search_key == ():
             search_key = choice(keys)
             for word in search_key:
                 words.append(word)
-        
-        #print(search_key)
 
         rand_word = choice(chains[search_key])
         words.append(rand_word)
@@ -121,12 +84,12 @@ def make_text(chains):
 
         if chains[search_key] == [None]:
             break
-        #print(search_key)
 
     return " ".join(words)
 
 
 input_path = sys.argv[-1]
+# import pdb; pdb.set_trace()
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
